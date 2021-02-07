@@ -29,18 +29,9 @@ public class Paddle : MonoBehaviour
         fun.speed += 0.1f;
     
        
-       // TODO: Merge these all into one line instead? Calculate transform.up by subtracting positions or something
-        // if (rb.position.y < this.GetComponent<Rigidbody>().position.y){
-        //     Debug.Log("Ball is below");
-        //     rb.AddForce((transform.right + (transform.up * -1)) * fun.speed, ForceMode.Impulse);
-        // }
-        // else if(rb.position.y > this.GetComponent<Rigidbody>().position.y){
-        //      Debug.Log("Ball is above");
-        //     rb.AddForce((transform.right + (transform.up)) * fun.speed, ForceMode.Impulse);
-        // }
-        // else{
-        //     rb.AddForce((transform.right * fun.speed), ForceMode.Impulse);
-        // }
+       
+
+        rb.velocity = new Vector3(fun.previousVelocity.x * 0, rb.velocity.y, 0);
 
         Vector3 angle = transform.right;
         angle.y = rb.position.y - rigid.position.y;

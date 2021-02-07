@@ -12,15 +12,17 @@ public class Ball : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(-2, 1, 0);
+        rb.velocity = new Vector3(-4, 2, 0);
         
 
     }
 
 
-    void Restart()
+    public void Restart(int direction)
     {
-
+        speed = 4;
+        rb.position = new Vector3(0, 1.29f, -3);
+        rb.velocity = new Vector3(4 * direction, 2, 0);
     }
 
 
