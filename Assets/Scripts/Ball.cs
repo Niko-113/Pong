@@ -5,8 +5,9 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed = 1;
+    public Vector3 previousVelocity; // Should probably use a get function instead of making this public but w/e 
     Rigidbody rb;
-    private Vector3 impactValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +23,9 @@ public class Ball : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision){
-        // impactValue = collision.relativeVelocity;
-        // speed += 0.1f;
-        // rb.AddForce((impactValue * speed), ForceMode.Impulse);
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    void FixedUpdate(){
+        previousVelocity = rb.velocity;
     }
 }
