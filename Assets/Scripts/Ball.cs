@@ -22,6 +22,11 @@ public class Ball : MonoBehaviour
 
     public void Restart(int direction)
     {
+        // Clear power-up colors and effects
+        trail.material.SetColor("_Color", Color.white);
+        this.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+
+
         trail.time = 0;
         speed = 4;
         rb.position = new Vector3(0, 1.29f, -3);

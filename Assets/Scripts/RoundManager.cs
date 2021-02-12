@@ -8,11 +8,7 @@ public class RoundManager : MonoBehaviour
     private int leftScore = 0;
     private int rightScore = 0;
     public Ball ball;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PowerUp power;
 
     void Restart()
     {
@@ -35,6 +31,7 @@ public class RoundManager : MonoBehaviour
             rightScore++;
             ball.Restart(-1);
         }
+        
         Debug.Log(str + "Paddle has scored!");
         Debug.Log("Current score is: " + leftScore + "-" + rightScore);
 
@@ -47,6 +44,7 @@ public class RoundManager : MonoBehaviour
             Restart();
         }
 
+        power.Restart();
 
 
     }

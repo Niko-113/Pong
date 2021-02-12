@@ -22,15 +22,15 @@ public class Paddle : MonoBehaviour
         Ball fun = collision.gameObject.GetComponent<Ball>();
 
         //Debug.Log(fun.speed);
-        fun.speed += 0.1f;
+        fun.speed += 0.2f;
 
-        speaker.pitch = 1 - (rb.velocity.magnitude / 30);
+        speaker.pitch = 1 - (fun.previousVelocity.magnitude / 30);
         speaker.PlayOneShot(hitsound);
     
        
        
 
-        rb.velocity = new Vector3(fun.previousVelocity.x * 0, rb.velocity.y, 0);
+        rb.velocity = new Vector3(0, 0, 0);
 
         Vector3 angle = transform.right;
         angle.y = rb.position.y - rigid.position.y;
