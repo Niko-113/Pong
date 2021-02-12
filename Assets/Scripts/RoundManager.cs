@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
 
     private int leftScore = 0;
     private int rightScore = 0;
+
     public Ball ball;
     public PowerUp power;
+    public Bumper bumper;
+    public Text leftText;
+    public Text rightText;
 
     void Restart()
     {
@@ -16,7 +21,6 @@ public class RoundManager : MonoBehaviour
         rightScore = 0;
     }
 
-    // Update is called once per frame
     
 
     public void score(float side){
@@ -45,7 +49,23 @@ public class RoundManager : MonoBehaviour
         }
 
         power.Restart();
+        bumper.Restart();
+        leftText.text = "" + leftScore; // Should probably check if C# has its own string conversion thing
+        rightText.text = "" + rightScore;
+        
 
+        // More elegant way to do this probably but I don't feel like doing the math
+        if(leftScore > rightScore){
+            leftText.color = Color.green;
+            rightText.color = Color.red;
+        } else if (rightScore > leftScore){
+            leftText.color = Color.red;
+            rightText.color = Color.green;
+        } else{
+            leftText.color = Color.white;
+            rightText.color = Color.white;
+        }
+        
 
     }
 }

@@ -7,7 +7,7 @@ public class PowerUp : MonoBehaviour
 
     public void Restart(){
         // Set random coords
-        this.transform.position = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), -3);
+        this.transform.position = new Vector3(Random.Range(-4, 4), Random.Range(-1, 3), -3);
     }
     void OnTriggerEnter(Collider other){
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
