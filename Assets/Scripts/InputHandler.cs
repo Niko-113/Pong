@@ -9,18 +9,12 @@ public class InputHandler : MonoBehaviour
 
     private int speed = 5;
 
-    // help???
 
     private float leftInput;
     private float rightInput;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         leftInput = Input.GetAxis("LeftInput");
